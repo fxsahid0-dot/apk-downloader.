@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APK Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .app-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .app-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+        .app-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .app-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+        }
+        .download-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .download-btn:hover {
+            background-color: #218838;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>APK Downloader</h1>
+        <p>Download Android APKs safely and easily. (Demo only - use official sources in real life!)</p>
+    </header>
+    
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for apps...">
+        </div>
+        
+        <div class="app-list" id="app-list">
+            <!-- Placeholder apps -->
+            <div class="app-card">
+                <img src="https://via.placeholder.com/80?text=App1" alt="App Icon">
+                <h3>Sample App 1</h3>
+                <p>Version: 1.0.0</p>
+                <button class="download-btn" onclick="alert('Demo: This would download the APK. In reality, link to a secure source.')">Download APK</button>
+            </div>
+            <div class="app-card">
+                <img src="https://via.placeholder.com/80?text=App2" alt="App Icon">
+                <h3>Sample App 2</h3>
+                <p>Version: 2.1.0</p>
+                <button class="download-btn" onclick="alert('Demo: This would download the APK. In reality, link to a secure source.')">Download APK</button>
+            </div>
+            <div class="app-card">
+                <img src="https://via.placeholder.com/80?text=App3" alt="App Icon">
+                <h3>Sample App 3</h3>
+                <p>Version: 1.5.0</p>
+                <button class="download-btn" onclick="alert('Demo: This would download the APK. In reality, link to a secure source.')">Download APK</button>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 APK Downloader Demo. Not for real use.</p>
+    </footer>
+    
+    <script>
+        // Simple search functionality
+        const searchInput = document.getElementById('search');
+        const appList = document.getElementById('app-list');
+        const apps = appList.querySelectorAll('.app-card');
+        
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            apps.forEach(app => {
+                const title = app.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    app.style.display = 'block';
+                } else {
+                    app.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
